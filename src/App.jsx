@@ -14,12 +14,14 @@ import {
   Mail,
   MapPin,
   Menu,
+  Moon,
   Phone,
   Rocket,
   Server,
   ShieldCheck,
   Sparkles,
   Store,
+  Sun,
   X,
 } from 'lucide-react';
 import profilePhoto from './assets/dastar-profile.jpeg';
@@ -407,6 +409,24 @@ function useHeroPhotoMotion(heroRef) {
   }, [heroRef]);
 }
 
+function useThemeMode() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') return 'light';
+    return localStorage.getItem('portfolio-theme') || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('portfolio-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'));
+  };
+
+  return { theme, toggleTheme };
+}
+
 function AnimatedNumber({ value, suffix }) {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef(null);
@@ -459,9 +479,10 @@ function AnimatedNumber({ value, suffix }) {
   );
 }
 
-function Header() {
+function Header({ theme, onToggleTheme }) {
   const active = useActiveSection();
   const [menuOpen, setMenuOpen] = useState(false);
+  const isDark = theme === 'dark';
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', menuOpen);
@@ -473,19 +494,12 @@ function Header() {
   return (
     <header className="site-header" aria-label="Main navigation">
       <a className="brand-mark" href="#top" onClick={closeMenu}>
-        <span>DH</span>
+        <span className="brand-avatar">
+          <img src={profilePhoto} alt="" />
+          <em>DH</em>
+        </span>
         <strong>DASTAR HUSSAIN</strong>
       </a>
-
-      <button
-        className="nav-toggle"
-        type="button"
-        aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-        aria-expanded={menuOpen}
-        onClick={() => setMenuOpen((value) => !value)}
-      >
-        {menuOpen ? <X size={22} /> : <Menu size={22} />}
-      </button>
 
       <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'}>
         {navItems.map((item) => (
@@ -499,6 +513,29 @@ function Header() {
           </a>
         ))}
       </nav>
+
+      <div className="header-actions">
+        <button
+          className="theme-toggle"
+          type="button"
+          aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          aria-pressed={isDark}
+          data-tip={isDark ? 'Light mode' : 'Dark mode'}
+          onClick={onToggleTheme}
+        >
+          {isDark ? <Sun size={19} /> : <Moon size={19} />}
+        </button>
+
+        <button
+          className="nav-toggle"
+          type="button"
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((value) => !value)}
+        >
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
     </header>
   );
 }
@@ -608,6 +645,12 @@ function SectionIntro({ eyebrow, title, text }) {
 }
 
 function WorkSection() {
+  const projectProofs = [
+    'Business websites and dashboards',
+    'APIs, CRUD systems, and databases',
+    'E-commerce and ERP workflow support',
+  ];
+
   return (
     <section className="section work-section" id="work" aria-labelledby="work-title">
       <SectionIntro
@@ -679,6 +722,29 @@ function WorkSection() {
           </article>
         ))}
       </div>
+
+      <aside className="project-proof" aria-label="Project delivery proof" data-reveal>
+        <div className="project-proof-number">
+          <strong>30+</strong>
+          <span>projects worked on</span>
+        </div>
+        <div className="project-proof-copy">
+          <h3>Hands-on delivery across real client and business use cases.</h3>
+          <p>
+            Beyond the live projects shown here, I have worked across websites, dashboards,
+            backend modules, database-driven systems, and workflow improvements that help
+            clients move from idea to launch.
+          </p>
+        </div>
+        <ul className="project-proof-list">
+          {projectProofs.map((item) => (
+            <li key={item}>
+              <CheckCircle2 size={17} />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </aside>
     </section>
   );
 }
@@ -910,11 +976,12 @@ function Footer() {
 }
 
 export default function App() {
+  const { theme, toggleTheme } = useThemeMode();
   useReveal();
 
   return (
     <>
-      <Header />
+      <Header theme={theme} onToggleTheme={toggleTheme} />
       <main>
         <Hero />
         <StatStrip />
