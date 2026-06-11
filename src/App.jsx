@@ -136,6 +136,24 @@ const services = [
 
 const iconUrl = (slug, color) => `https://cdn.simpleicons.org/${slug}/${color}`;
 const inlineSvg = (svg) => `data:image/svg+xml,${encodeURIComponent(svg)}`;
+const csharpIcon = inlineSvg(`
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <path fill="#512bd4" d="M32 3 56 16.8v30.4L32 61 8 47.2V16.8L32 3Z"/>
+    <path fill="#8065e0" d="M32 9.5 50 19.8v24.4L32 54.5 14 44.2V19.8L32 9.5Z"/>
+    <text x="32" y="39" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" text-anchor="middle">C#</text>
+  </svg>
+`);
+const xppIcon = inlineSvg(`
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="14" fill="#107c10"/>
+    <path fill="#7fba00" d="M10 10h20v20H10z"/>
+    <path fill="#00a4ef" d="M34 10h20v20H34z"/>
+    <path fill="#f25022" d="M10 34h20v20H10z"/>
+    <path fill="#ffb900" d="M34 34h20v20H34z"/>
+    <rect x="7" y="23" width="50" height="18" rx="5" fill="#11151c" opacity=".9"/>
+    <text x="32" y="36" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" text-anchor="middle">X++</text>
+  </svg>
+`);
 const sqlIcon = inlineSvg(`
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
     <path fill="#0f8f87" d="M12 15c0-6.1 8.9-11 20-11s20 4.9 20 11v34c0 6.1-8.9 11-20 11s-20-4.9-20-11V15Z"/>
@@ -148,7 +166,7 @@ const skills = [
   {
     name: 'C#',
     url: 'https://learn.microsoft.com/en-us/dotnet/csharp/',
-    icon: iconUrl('csharp', '512BD4'),
+    icon: csharpIcon,
   },
   {
     name: '.NET',
@@ -158,7 +176,7 @@ const skills = [
   {
     name: 'X++',
     url: 'https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-language-reference',
-    icon: iconUrl('microsoft', '5E5E5E'),
+    icon: xppIcon,
   },
   {
     name: 'JavaScript',
