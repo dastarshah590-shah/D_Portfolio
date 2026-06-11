@@ -503,7 +503,7 @@ function Hero() {
 
       <div className="hero-content">
         <p className="eyebrow" data-reveal>
-          Freelance-ready full-stack developer
+          Building reliable software for growing businesses
         </p>
         <h1 id="hero-title" data-reveal>
           DASTAR HUSSAIN
