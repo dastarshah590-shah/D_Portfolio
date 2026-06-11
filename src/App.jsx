@@ -23,6 +23,15 @@ import {
   X,
 } from 'lucide-react';
 import profilePhoto from './assets/dastar-profile.jpeg';
+import ecommerceAdmin from './assets/projects/ecommerce-admin.png';
+import ecommerceOrders from './assets/projects/ecommerce-orders.png';
+import ecommerceStorefront from './assets/projects/ecommerce-storefront.png';
+import employeeDashboard from './assets/projects/employee-dashboard.png';
+import employeeRecords from './assets/projects/employee-records.png';
+import employeeReports from './assets/projects/employee-reports.png';
+import inventoryDashboard from './assets/projects/inventory-dashboard.png';
+import inventoryProducts from './assets/projects/inventory-products.png';
+import inventoryTransactions from './assets/projects/inventory-transactions.png';
 
 const links = {
   resume: './Dastar-Hussain-Resume.pdf',
@@ -56,6 +65,11 @@ const projects = [
       'A deployed management system for employee records, structured workflows, and admin-focused business operations.',
     stack: ['C#', '.NET', 'REST API', 'SQL', 'Render'],
     highlights: ['Employee record handling', 'Admin workflow foundation', 'Cloud deployment'],
+    previews: [
+      { image: employeeDashboard, label: 'Dashboard' },
+      { image: employeeRecords, label: 'Employee records' },
+      { image: employeeReports, label: 'Reports' },
+    ],
   },
   {
     title: 'Inventory Management System',
@@ -65,6 +79,11 @@ const projects = [
       'A live inventory platform shaped around product records, stock visibility, and reliable CRUD operations.',
     stack: ['C#', '.NET', 'SQL', 'CRUD', 'Render'],
     highlights: ['Product and stock modules', 'Clean API structure', 'Business process mindset'],
+    previews: [
+      { image: inventoryDashboard, label: 'Dashboard' },
+      { image: inventoryProducts, label: 'Products' },
+      { image: inventoryTransactions, label: 'Transactions' },
+    ],
   },
   {
     title: 'E-Commerce Web API',
@@ -74,6 +93,11 @@ const projects = [
       'A backend API for e-commerce workflows, built to support product, order, and store-management experiences.',
     stack: ['C#', '.NET API', 'E-Commerce', 'REST', 'Render'],
     highlights: ['Commerce-ready endpoints', 'Scalable API patterns', 'Deployment-ready backend'],
+    previews: [
+      { image: ecommerceStorefront, label: 'Storefront' },
+      { image: ecommerceOrders, label: 'Orders' },
+      { image: ecommerceAdmin, label: 'Admin console' },
+    ],
   },
 ];
 
@@ -110,26 +134,110 @@ const services = [
   },
 ];
 
+const iconUrl = (slug, color) => `https://cdn.simpleicons.org/${slug}/${color}`;
+
 const skills = [
-  'C#',
-  '.NET',
-  'X++',
-  'JavaScript',
-  'React',
-  'Node.js',
-  'Express.js',
-  'HTML',
-  'CSS',
-  'SQL',
-  'MongoDB',
-  'Git',
-  'WordPress',
-  'Shopify',
-  'Wix',
-  'Meta Ads',
-  'Google Ads',
-  'TikTok Ads',
+  {
+    name: 'C#',
+    url: 'https://learn.microsoft.com/en-us/dotnet/csharp/',
+    icon: iconUrl('csharp', '512BD4'),
+  },
+  {
+    name: '.NET',
+    url: 'https://dotnet.microsoft.com/',
+    icon: iconUrl('dotnet', '512BD4'),
+  },
+  {
+    name: 'X++',
+    url: 'https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-language-reference',
+    icon: iconUrl('microsoft', '5E5E5E'),
+  },
+  {
+    name: 'JavaScript',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    icon: iconUrl('javascript', 'F7DF1E'),
+  },
+  {
+    name: 'React',
+    url: 'https://react.dev/',
+    icon: iconUrl('react', '149ECA'),
+  },
+  {
+    name: 'Node.js',
+    url: 'https://nodejs.org/',
+    icon: iconUrl('nodedotjs', '5FA04E'),
+  },
+  {
+    name: 'Express.js',
+    url: 'https://expressjs.com/',
+    icon: iconUrl('express', '11151C'),
+  },
+  {
+    name: 'HTML',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+    icon: iconUrl('html5', 'E34F26'),
+  },
+  {
+    name: 'CSS',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+    icon: iconUrl('css', '663399'),
+  },
+  {
+    name: 'SQL',
+    url: 'https://learn.microsoft.com/en-us/sql/',
+    icon: iconUrl('microsoftsqlserver', 'CC2927'),
+  },
+  {
+    name: 'MongoDB',
+    url: 'https://www.mongodb.com/',
+    icon: iconUrl('mongodb', '47A248'),
+  },
+  {
+    name: 'Git',
+    url: 'https://git-scm.com/',
+    icon: iconUrl('git', 'F05032'),
+  },
+  {
+    name: 'WordPress',
+    url: 'https://wordpress.org/',
+    icon: iconUrl('wordpress', '21759B'),
+  },
+  {
+    name: 'Shopify',
+    url: 'https://www.shopify.com/',
+    icon: iconUrl('shopify', '7AB55C'),
+  },
+  {
+    name: 'Wix',
+    url: 'https://www.wix.com/',
+    icon: iconUrl('wix', '11151C'),
+  },
+  {
+    name: 'Meta Ads',
+    url: 'https://www.facebook.com/business/ads',
+    icon: iconUrl('meta', '0467DF'),
+  },
+  {
+    name: 'Google Ads',
+    url: 'https://ads.google.com/',
+    icon: iconUrl('googleads', '4285F4'),
+  },
+  {
+    name: 'TikTok Ads',
+    url: 'https://ads.tiktok.com/',
+    icon: iconUrl('tiktok', '11151C'),
+  },
 ];
+
+const techLinks = {
+  ...Object.fromEntries(skills.map((skill) => [skill.name, skill.url])),
+  '.NET API': 'https://learn.microsoft.com/en-us/aspnet/core/web-api/',
+  'REST API': 'https://developer.mozilla.org/en-US/docs/Glossary/REST',
+  REST: 'https://developer.mozilla.org/en-US/docs/Glossary/REST',
+  Render: 'https://render.com/',
+  CRUD: 'https://www.codecademy.com/article/what-is-crud',
+  'E-Commerce': 'https://www.shopify.com/blog/what-is-ecommerce',
+};
 
 const experience = [
   {
@@ -485,6 +593,25 @@ function WorkSection() {
       <div className="project-grid">
         {projects.map((project, index) => (
           <article className="project-card" key={project.title} data-reveal>
+            <div className="project-showcase" aria-label={`${project.title} screenshots`}>
+              {project.previews.map((preview, previewIndex) => (
+                <a
+                  className={previewIndex === 0 ? 'preview-frame preview-main' : 'preview-frame'}
+                  href={project.live}
+                  key={preview.label}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${project.title} live project from ${preview.label} screenshot`}
+                >
+                  <img
+                    src={preview.image}
+                    alt={`${project.title} ${preview.label} screenshot`}
+                    loading="lazy"
+                  />
+                  <span>{preview.label}</span>
+                </a>
+              ))}
+            </div>
             <div className="project-index">0{index + 1}</div>
             <div className="project-topline">
               <span>{project.type}</span>
@@ -512,9 +639,16 @@ function WorkSection() {
             </ul>
 
             <div className="tag-row">
-              {project.stack.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
+              {project.stack.map((item) => {
+                const tagUrl = techLinks[item];
+                return tagUrl ? (
+                  <a href={tagUrl} key={item} target="_blank" rel="noreferrer">
+                    {item}
+                  </a>
+                ) : (
+                  <span key={item}>{item}</span>
+                );
+              })}
             </div>
           </article>
         ))}
@@ -608,7 +742,17 @@ function SkillsSection() {
       <div className="skill-marquee" data-reveal aria-label="Technical skills">
         <div className="skill-track">
           {duplicatedSkills.map((skill, index) => (
-            <span key={`${skill}-${index}`}>{skill}</span>
+            <a
+              className="skill-pill"
+              href={skill.url}
+              key={`${skill.name}-${index}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Open ${skill.name} website`}
+            >
+              <img src={skill.icon} alt="" loading="lazy" />
+              <span>{skill.name}</span>
+            </a>
           ))}
         </div>
       </div>
