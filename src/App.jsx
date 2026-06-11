@@ -135,6 +135,14 @@ const services = [
 ];
 
 const iconUrl = (slug, color) => `https://cdn.simpleicons.org/${slug}/${color}`;
+const inlineSvg = (svg) => `data:image/svg+xml,${encodeURIComponent(svg)}`;
+const sqlIcon = inlineSvg(`
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <path fill="#0f8f87" d="M12 15c0-6.1 8.9-11 20-11s20 4.9 20 11v34c0 6.1-8.9 11-20 11s-20-4.9-20-11V15Z"/>
+    <ellipse cx="32" cy="15" fill="#36c7bd" rx="20" ry="11"/>
+    <path fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5" d="M22 30c3.1 2.2 6.4 3.3 10 3.3s6.9-1.1 10-3.3M22 43c3.1 2.2 6.4 3.3 10 3.3s6.9-1.1 10-3.3"/>
+  </svg>
+`);
 
 const skills = [
   {
@@ -185,7 +193,7 @@ const skills = [
   {
     name: 'SQL',
     url: 'https://learn.microsoft.com/en-us/sql/',
-    icon: iconUrl('microsoftsqlserver', 'CC2927'),
+    icon: sqlIcon,
   },
   {
     name: 'MongoDB',
