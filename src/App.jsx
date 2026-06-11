@@ -496,7 +496,6 @@ function Header({ theme, onToggleTheme }) {
       <a className="brand-mark" href="#top" onClick={closeMenu}>
         <span className="brand-avatar">
           <img src={profilePhoto} alt="" />
-          <em>DH</em>
         </span>
         <strong>DASTAR HUSSAIN</strong>
       </a>

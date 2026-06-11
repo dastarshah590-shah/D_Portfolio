@@ -150,23 +150,6 @@ img {
   object-position: center 28%;
 }
 
-.brand-avatar em {
-  position: absolute;
-  right: 3px;
-  bottom: 3px;
-  display: grid;
-  width: 21px;
-  height: 17px;
-  place-items: center;
-  border-radius: 4px;
-  background: rgba(17, 21, 28, 0.88);
-  color: var(--white);
-  font-size: 0.58rem;
-  font-style: normal;
-  font-weight: 950;
-  line-height: 1;
-}
-
 .brand-mark strong {
   font-size: clamp(0.78rem, 1.4vw, 0.95rem);
   letter-spacing: 0;
